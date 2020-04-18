@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
     private void ResetGame()
     {
         currentState = GameState.pregame;
-        BalanceManager.Reset();
+        BalanceManager.Undie();
+        PlayerManager.Undie();
     }
 
     public enum GameState
