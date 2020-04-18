@@ -38,13 +38,15 @@ public class BalanceManager : MonoBehaviour
 
 
         // Make it moar difficult!
-        //falloverMultiplyer += 0.05f * Time.deltaTime;
+        falloverMultiplyer += 0.05f * Time.deltaTime;
 
         testSlider.value = currentBalance;
     }
 
     private float DontGoOverMax(float valueToClamp)
     {
-        return Mathf.Clamp(valueToClamp, -balanceMax - currentBalance, balanceMax - currentBalance);
+        float output = Mathf.Clamp(valueToClamp, -balanceMax - currentBalance, balanceMax - currentBalance);
+        Debug.Assert(Mathf.Abs(output) < balanceMax);
+        return output;
     }
 }

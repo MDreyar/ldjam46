@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 1142804360}
   - component: {fileID: 1142804359}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BalanceManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,7 +761,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae33bbaf70fb72a45906cbdd41e17e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 809837674}
+  testSlider: {fileID: 809837674}
+  balanceMax: 50
+  minRandomBalanceAjustmentAmount: 10
+  MaxRandomBalanceAjustmentAmount: 20
+  falloverMultiplyer: 1
+  currentBalance: 0
 --- !u!4 &1142804360
 Transform:
   m_ObjectHideFlags: 0
