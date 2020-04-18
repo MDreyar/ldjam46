@@ -26,10 +26,10 @@ public class BalanceBarManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Environment")
+        if (other.transform.tag == "Obstacle")
         {
-            GameManager.Instance.currentState = GameManager.GameState.death;
-            
+            Debug.Log("Hit an obstacle!");
+            GameManager.Instance.BalanceManager.Impact();
         }
     }
 
