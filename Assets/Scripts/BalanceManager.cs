@@ -52,6 +52,12 @@ public class BalanceManager : MonoBehaviour
         falloverMultiplyer = 1;
     }
 
+    public void Impact()
+    {
+        if (currentBalance >= 0) currentBalance += 15;
+        else if (currentBalance < 0) currentBalance += -15;
+    }
+
     private float DontGoOverMax(float valueToClamp)
     {
         float output = Mathf.Clamp(valueToClamp, -balanceMax - currentBalance, balanceMax - currentBalance);
