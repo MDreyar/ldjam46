@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public BalanceManager BalanceManager { get; private set; }
     public PlayerManager PlayerManager { get; set; }
+    public WorldManager WorldManager { get; set; }
+    public BalanceBarManager BalanceBarManager { get; set; }
 
     public GameState currentState = GameState.pregame;
 
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
             {
                 currentState = GameState.playing;
                 debugText.text = "";
+                WorldManager.isSpinning = true;
             }
         }
         else if (currentState == GameState.playing)
@@ -68,6 +71,7 @@ public class GameManager : MonoBehaviour
         currentState = GameState.pregame;
         BalanceManager.Undie();
         PlayerManager.Undie();
+        BalanceBarManager.Undie();
         Camera.main.transform.rotation = defaultCameraPosition;
 
     }

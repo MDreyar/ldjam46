@@ -7,6 +7,11 @@ public class WorldManager : MonoBehaviour
     public bool isSpinning;
     public float rotationSpeed;
 
+    void Start()
+    {
+        GameManager.Instance.WorldManager = this;
+    }
+
     void Update()
     {
         if (isSpinning)
