@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
         PlayerManager.Undie();
         BalanceBarManager.Undie();
         Camera.main.transform.rotation = defaultCameraPosition;
-
     }
 
     public enum GameState
