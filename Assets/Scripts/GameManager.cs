@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public BalanceManager BalanceManager { get; private set; }
     public PlayerManager PlayerManager { get; set; }
 
-    public bool isPlaying = false;
+    public GameState currentState = GameState.pregame;
 
     public Text debugText;
 
@@ -32,20 +32,28 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isPlaying)
+        if (currentState == GameState.pregame)
         {
             debugText.text = "Click to start!";
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
-                isPlaying = true;
+                currentState = GameState.playing;
                 debugText.text = "";
             }
         }
-        else
+        else if (currentState == GameState.playing)
         {
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
                 Debug.Log("You lost!");
+                currentState = GameState.death;
+            }
+        }
+        else if (currentState == GameState.death)
+        {
+            debugText.text = "You died!\nPress space to reset.";
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 ResetGame();
             }
         }
@@ -53,7 +61,12 @@ public class GameManager : MonoBehaviour
 
     private void ResetGame()
     {
-        isPlaying = false;
+        currentState = GameState.pregame;
         BalanceManager.Reset();
+    }
+
+    public enum GameState
+    {
+        pregame, playing, death
     }
 }

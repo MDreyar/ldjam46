@@ -24,7 +24,7 @@ public class BalanceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.isPlaying)
+        if (GameManager.Instance.currentState != GameManager.GameState.playing)
             return;
 
         // Change balance based on input
