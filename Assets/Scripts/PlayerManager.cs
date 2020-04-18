@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour
             {
                 rBody.useGravity = true;
                 rBody.isKinematic = false;
+                rBody.AddRelativeForce(new Vector3(0, 3, 0), ForceMode.VelocityChange);
             }
         }
     }
@@ -39,6 +40,7 @@ public class PlayerManager : MonoBehaviour
     public void Undie()
     {
         transform.GetChild(0).localPosition = new Vector3(0, 1, 0);
+        transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rBody.useGravity = false;
         rBody.isKinematic = true;

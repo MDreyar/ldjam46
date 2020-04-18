@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public Text debugText;
 
+    private Quaternion defaultCameraPosition;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        defaultCameraPosition = Camera.main.transform.rotation;
     }
 
     // Update is called once per frame
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
         else if (currentState == GameState.death)
         {
             debugText.text = "You died!\nPress space to reset.";
+            Camera.main.transform.LookAt(PlayerManager.transform.GetChild(0));
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ResetGame();
@@ -64,6 +68,8 @@ public class GameManager : MonoBehaviour
         currentState = GameState.pregame;
         BalanceManager.Undie();
         PlayerManager.Undie();
+        Camera.main.transform.rotation = defaultCameraPosition;
+
     }
 
     public enum GameState
