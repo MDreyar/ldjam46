@@ -24,6 +24,9 @@ public class BalanceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.isPlaying)
+            return;
+
         // Change balance based on input
         if (Input.GetMouseButtonDown(0))
         {
@@ -41,6 +44,12 @@ public class BalanceManager : MonoBehaviour
         falloverMultiplyer += 0.05f * Time.deltaTime;
 
         testSlider.value = currentBalance;
+    }
+
+    public void Reset()
+    {
+        currentBalance = 0;
+        falloverMultiplyer = 1;
     }
 
     private float DontGoOverMax(float valueToClamp)

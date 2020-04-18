@@ -9,25 +9,18 @@ public class PlayerManager : MonoBehaviour
 
     public float rollValue;
 
-    public bool hasFallen;
-
-    public BalanceManager balanceManager;
+    private BalanceManager balanceManager;
     
     void Start()
     {
-        hasFallen = false;
+        balanceManager = GameManager.Instance.BalanceManager;
+        GameManager.Instance.PlayerManager = this;
     }
     
     void Update()
     {
         rollValue = balanceManager.currentBalance;
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.Lerp(maxRollAngleLeft, maxRollAngleRight, Mathf.InverseLerp(-50, 50, rollValue)));
-
-        if (Mathf.Abs(rollValue) == Mathf.Abs(balanceManager.balanceMax))
-        {
-            hasFallen = true;
-            Debug.Log("You didn't keep it alive!");
-        }
     }
 }
 
