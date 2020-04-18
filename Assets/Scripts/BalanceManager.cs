@@ -31,7 +31,8 @@ public class BalanceManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             currentBalance += DontGoOverMax(Random.Range(minRandomBalanceAjustmentAmount, MaxRandomBalanceAjustmentAmount));
-        }else if (Input.GetMouseButtonDown(1))
+        }
+        else if (Input.GetMouseButtonDown(1))
         {
             currentBalance += DontGoOverMax(Random.Range(-MaxRandomBalanceAjustmentAmount, -minRandomBalanceAjustmentAmount));
         }
@@ -39,14 +40,13 @@ public class BalanceManager : MonoBehaviour
         // Natural fallover
         currentBalance += DontGoOverMax(falloverMultiplyer * currentBalance * Time.deltaTime);
 
-
         // Make it moar difficult!
         falloverMultiplyer += 0.05f * Time.deltaTime;
 
         testSlider.value = currentBalance;
     }
 
-    public void Reset()
+    public void Undie()
     {
         currentBalance = 0;
         falloverMultiplyer = 1;
