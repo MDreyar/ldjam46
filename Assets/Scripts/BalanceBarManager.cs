@@ -6,17 +6,24 @@ public class BalanceBarManager : MonoBehaviour
 {
     private Rigidbody rBody;
     private BoxCollider collin;
+    private BalanceManager balanceManager;
 
     void Start()
     {
         GameManager.Instance.BalanceBarManager = this;
         rBody = GetComponent<Rigidbody>();
         collin = GetComponent<BoxCollider>();
+        balanceManager = GameManager.Instance.BalanceManager;
     }
 
     void Update()
     {
-        if (GameManager.Instance.currentState == GameManager.GameState.death)
+
+        if(GameManager.Instance.currentState == GameManager.GameState.playing)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, balanceManager.targetBalance), 1);
+        }
+        else if (GameManager.Instance.currentState == GameManager.GameState.death)
         {
             rBody.isKinematic = false;
             rBody.useGravity = true;
@@ -29,7 +36,7 @@ public class BalanceBarManager : MonoBehaviour
         if (other.transform.tag == "Obstacle")
         {
             Debug.Log("Hit an obstacle!");
-            GameManager.Instance.BalanceManager.Impact();
+            balanceManager.Impact();
         }
     }
 

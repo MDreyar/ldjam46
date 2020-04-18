@@ -27,11 +27,6 @@ public class BalanceManager : MonoBehaviour
     public float targetBalance { get; set; } = 0;
     private float smoothMovementVelocity = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -52,7 +47,7 @@ public class BalanceManager : MonoBehaviour
         targetBalance += DontGoOverMax(falloverMultiplyer * targetBalance * Time.deltaTime);
 
         // Make it moar difficult!
-        falloverMultiplyer += 0.05f * Time.deltaTime;
+        //falloverMultiplyer += 0.05f * Time.deltaTime;
 
         currentBalance = Mathf.SmoothDamp(currentBalance, targetBalance, ref smoothMovementVelocity, falloverSpeed);
 
@@ -69,8 +64,16 @@ public class BalanceManager : MonoBehaviour
 
     public void Impact()
     {
-        if (currentBalance >= 0) currentBalance += 15;
-        else if (currentBalance < 0) currentBalance += -15;
+        if (currentBalance >= 0)
+        {
+            currentBalance += 15;
+            targetBalance += 15;
+        }
+        else if (currentBalance < 0)
+        {
+            currentBalance += -15;
+            targetBalance += 15;
+        }
     }
 
     private float DontGoOverMax(float valueToClamp)
