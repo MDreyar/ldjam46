@@ -14,7 +14,7 @@ public class BalanceManager : MonoBehaviour
     public float falloverMultiplyer = 1;
 
     [SerializeField]
-    private float currentBalance = 0;
+    public float currentBalance { get; private set; } = 0;
 
     // Start is called before the first frame update
     void Start()
