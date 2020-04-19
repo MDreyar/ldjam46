@@ -16,6 +16,9 @@ public class PlayerManager : MonoBehaviour
     private Animator animator;
     private Vector3 spawnLocation;
 
+    public ParticleSystem spark;
+    public ParticleSystem sparkStart;
+
     void Start()
     {
         balanceManager = GameManager.Instance.BalanceManager;
@@ -23,6 +26,8 @@ public class PlayerManager : MonoBehaviour
         rBody = gameObject.GetComponentInChildren<Rigidbody>();
         animator = gameObject.GetComponent<Animator>();
         spawnLocation = transform.position;
+
+        GameManager.Instance.OnGameStateChanged += GameStateChanged;
     }
 
     void Update()
@@ -59,6 +64,20 @@ public class PlayerManager : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rBody.useGravity = false;
         rBody.isKinematic = true;
+    }
+
+    void GameStateChanged(GameManager.GameState state)
+    {
+        if (state == GameManager.GameState.playing)
+        {
+            spark.Play();
+            sparkStart.Play();
+        }
+        else if (state == GameManager.GameState.death)
+        {
+            spark.Stop();
+            sparkStart.Stop();
+        }
     }
 }
 

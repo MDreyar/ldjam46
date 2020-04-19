@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4802,7 +4802,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -16516,6 +16516,8 @@ MonoBehaviour:
   maxRollAngleRight: 70
   rollValue: 0
   panicMoment: 25
+  spark: {fileID: 2077985289}
+  sparkStart: {fileID: 793594451}
 --- !u!136 &6884882972699529654
 CapsuleCollider:
   m_ObjectHideFlags: 0
