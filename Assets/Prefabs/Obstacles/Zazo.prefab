@@ -635,7 +635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3614238392444517215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.197, y: 0.0702, z: 0}
+  m_LocalPosition: {x: 0.178, y: 0.0702, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2942291313942035343}
@@ -672,7 +672,7 @@ Transform:
   - {fileID: 6417389381271003016}
   - {fileID: 6340350176142243726}
   m_Father: {fileID: 1083907684774542605}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3891087677685722698
 GameObject:
@@ -998,7 +998,7 @@ Transform:
   m_Children:
   - {fileID: 8413620073031682650}
   m_Father: {fileID: 1083907684774542605}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4896215917340768237
 GameObject:
@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 2638937206123925666}
   - component: {fileID: -2043759288036338333}
   - component: {fileID: -3507427270397631244}
+  - component: {fileID: 5431589668718082220}
   m_Layer: 0
   m_Name: Zazo
   m_TagString: Obstacle
@@ -1167,7 +1168,6 @@ Transform:
   - {fileID: 8931376664679026230}
   - {fileID: 179946607714359981}
   - {fileID: 6453283441747608848}
-  - {fileID: 2768902844078921462}
   - {fileID: 9060819649277630498}
   - {fileID: 4137783800371176151}
   - {fileID: 4518915113547079776}
@@ -1241,6 +1241,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &5431589668718082220
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5216692659962537483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbdf524d0ff78234f917d9c7a819c28a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5227469826496211380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5227469826496211380}
   m_LocalRotation: {x: -0.048602488, y: 0.9988183, z: 0.000000024214383, w: -0.00000038743013}
-  m_LocalPosition: {x: 0.0046000034, y: -0.05920001, z: -0.21729998}
+  m_LocalPosition: {x: 0.012, y: -0.059, z: -0.21729998}
   m_LocalScale: {x: 0.25, y: 0.06930968, z: 0.3927715}
   m_Children: []
   m_Father: {fileID: 8026663702042427178}
@@ -1566,7 +1585,7 @@ Transform:
   - {fileID: 7570263940418515011}
   - {fileID: 8026663702042427178}
   m_Father: {fileID: 1083907684774542605}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5902414349093184431
 GameObject:
@@ -2052,6 +2071,7 @@ Transform:
   - {fileID: 1416314313}
   - {fileID: 2879387923004372734}
   - {fileID: 6061565150617804153}
+  - {fileID: 2768902844078921462}
   m_Father: {fileID: 1083907684774542605}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2082,7 +2102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8072377108883776618}
   m_LocalRotation: {x: 0.048605718, y: 0.9988181, z: 0.000000013652387, w: 0.0000002805483}
-  m_LocalPosition: {x: 0.026, y: -0.05920001, z: -0.21729998}
+  m_LocalPosition: {x: 0.025, y: -0.068, z: -0.217}
   m_LocalScale: {x: 0.25, y: 0.06930968, z: 0.3927715}
   m_Children: []
   m_Father: {fileID: 6340350176142243726}
@@ -2408,11 +2428,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663220693989841428}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.075, y: 0.03, z: 0.25}
+  m_LocalPosition: {x: -0.075, y: -0.06274074, z: 0.2979}
   m_LocalScale: {x: 1.7708, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1083907684774542605}
-  m_RootOrder: 5
+  m_Father: {fileID: 8931376664679026230}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 180, y: -90, z: -90}
 --- !u!33 &5863765989253053275
 MeshFilter:
