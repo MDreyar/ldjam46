@@ -13,6 +13,12 @@ public class ObstacleManager : MonoBehaviour
             {
                 transform.Find("Icosphere").GetComponent<MeshRenderer>().enabled = false;
                 GetComponentInChildren<ParticleSystem>().Play();
+            }else if (gameObject.name.Contains("Zazo"))
+            {
+                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.useGravity = true;
+                rb.AddForce(0, -3, 0, ForceMode.VelocityChange);
             }
         }
         else if (other.transform.tag == "Delete")
@@ -20,5 +26,10 @@ public class ObstacleManager : MonoBehaviour
             Debug.Log("DESU!");
             Destroy(gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

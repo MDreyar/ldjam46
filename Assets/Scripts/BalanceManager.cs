@@ -21,7 +21,9 @@ public class BalanceManager : MonoBehaviour
     [Tooltip("This multiplyer is attached to the natural leaning, based on how far the player is already leaning")]
     public float falloverMultiplyer = 1;
     [Tooltip("How quickly should the player move towards the target. A lower number is quicker!")]
-    public float falloverSpeed = 2;
+    public float falloverSpeed = 1;
+    [Tooltip("How far should the player be pushed when it hits something")]
+    public float pushoverAmount = 15;
 
     public float currentBalance { get; private set; } = 0;
     public float targetBalance { get; set; } = 0;
@@ -64,15 +66,15 @@ public class BalanceManager : MonoBehaviour
 
     public void Impact()
     {
-        if (currentBalance >= 0)
+        if (targetBalance >= 0)
         {
-            currentBalance += 15;
-            targetBalance += 15;
+            //currentBalance += pushoverAmount;
+            targetBalance += pushoverAmount;
         }
-        else if (currentBalance < 0)
+        else if (targetBalance < 0)
         {
-            currentBalance += -15;
-            targetBalance += 15;
+            //currentBalance += -pushoverAmount;
+            targetBalance += -pushoverAmount;
         }
     }
 
