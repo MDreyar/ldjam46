@@ -51,8 +51,8 @@ public class BalanceManager : MonoBehaviour
 
         currentBalance = Mathf.SmoothDamp(currentBalance, targetBalance, ref smoothMovementVelocity, falloverSpeed);
 
-        testSliderCurrent.value = currentBalance;
-        testSliderTarget.value = targetBalance;
+        if (testSliderCurrent != null) testSliderCurrent.value = currentBalance;
+        if (testSliderTarget != null)  testSliderTarget.value = targetBalance;
     }
 
     public void Undie()

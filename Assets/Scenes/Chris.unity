@@ -4674,7 +4674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47026da71c8dab940b5d8d7545c9f561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
   debugText: {fileID: 2023656402}
 --- !u!4 &562334849
 Transform:
