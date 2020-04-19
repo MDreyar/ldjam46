@@ -12,7 +12,21 @@ public class GameManager : MonoBehaviour
     public WorldManager WorldManager { get; set; }
     public BalanceBarManager BalanceBarManager { get; set; }
 
-    public GameState currentState = GameState.pregame;
+    public delegate void GameStateChanged(GameState state);
+    public event GameStateChanged OnGameStateChanged;
+
+    private GameState pCurrentState;
+
+    public GameState currentState {
+        get
+        {
+            return pCurrentState;
+        }
+        set
+        {
+            pCurrentState = value;
+            if (OnGameStateChanged != null) OnGameStateChanged(value);
+        }}
 
     public Text debugText;
 
@@ -31,6 +45,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentState = GameState.pregame;
         defaultCameraPosition = Camera.main.transform.rotation;
     }
 
