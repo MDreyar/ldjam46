@@ -13,12 +13,16 @@ public class ObstacleManager : MonoBehaviour
             {
                 transform.Find("Icosphere").GetComponent<MeshRenderer>().enabled = false;
                 GetComponentInChildren<ParticleSystem>().Play();
-            }else if (gameObject.name.Contains("Zazo"))
+                GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
+            }
+            else if (gameObject.name.Contains("Zazo"))
             {
                 Rigidbody rb = gameObject.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
                 rb.useGravity = true;
                 rb.AddForce(0, -3, 0, ForceMode.VelocityChange);
+                GetComponentInChildren<ParticleSystem>().Play();
+                GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
             }
         }
         else if (other.transform.tag == "Delete")
