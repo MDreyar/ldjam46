@@ -55,16 +55,18 @@ public class GameManager : MonoBehaviour
     {
         if (currentState == GameState.pregame)
         {
-            debugText.text = "Click to start!";
+            if (debugText != null) debugText.text = "Click to start!";
+            WorldManager.isSpinning = false;
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 currentState = GameState.playing;
-                debugText.text = "";
+                if (debugText != null) debugText.text = "";
                 WorldManager.isSpinning = true;
             }
         }
         else if (currentState == GameState.playing)
         {
+            WorldManager.isSpinning = true;
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
                 Debug.Log("You lost!");
@@ -73,8 +75,9 @@ public class GameManager : MonoBehaviour
         }
         else if (currentState == GameState.death)
         {
-            debugText.text = "You died!\nPress space to reset.";
+            if (debugText != null)  debugText.text = "You died!\nPress space to reset.";
             Camera.main.transform.LookAt(PlayerManager.transform.GetChild(0));
+            WorldManager.isSpinning = false;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ResetGame();

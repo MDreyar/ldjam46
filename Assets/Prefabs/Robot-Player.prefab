@@ -7007,6 +7007,7 @@ MonoBehaviour:
   maxRollAngleLeft: -70
   maxRollAngleRight: 70
   rollValue: 0
+  panicMoment: 25
 --- !u!136 &6884882972699529654
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8588,7 +8589,6 @@ GameObject:
   - component: {fileID: 9112260032139470897}
   - component: {fileID: 9039872840816582497}
   - component: {fileID: 5166237538682923340}
-  - component: {fileID: 4319381143135534987}
   m_Layer: 0
   m_Name: Icosphere
   m_TagString: Untagged
@@ -10812,20 +10812,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &4319381143135534987
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3769349995971823998}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &3906955522658348677
 GameObject:
   m_ObjectHideFlags: 0
@@ -17639,7 +17625,6 @@ GameObject:
   - component: {fileID: 7965846885573813488}
   - component: {fileID: 8400306087491137660}
   - component: {fileID: 3533514041279353465}
-  - component: {fileID: 8987203091461573731}
   m_Layer: 0
   m_Name: Arch
   m_TagString: Untagged
@@ -18283,20 +18268,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &8987203091461573731
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4002652769919548966}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &4267477937196939646
 GameObject:
   m_ObjectHideFlags: 0
@@ -27596,7 +27567,6 @@ GameObject:
   - component: {fileID: 4671989414766445014}
   - component: {fileID: 8773898275550654771}
   - component: {fileID: 2904854005950786878}
-  - component: {fileID: 980950977761338206}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -28655,20 +28625,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &980950977761338206
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8476962095347713519}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8704977296701098029
 GameObject:
   m_ObjectHideFlags: 0
@@ -28681,6 +28637,7 @@ GameObject:
   - component: {fileID: 8044895576560905438}
   - component: {fileID: 7520138314682154926}
   - component: {fileID: 7648024527368785039}
+  - component: {fileID: 6917469875735274163}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -28964,6 +28921,20 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!64 &6917469875735274163
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704977296701098029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &8833277240446036661
 GameObject:
   m_ObjectHideFlags: 0
@@ -28976,6 +28947,7 @@ GameObject:
   - component: {fileID: 2771969775162590250}
   - component: {fileID: 6124125109982981563}
   - component: {fileID: 5338205267007332052}
+  - component: {fileID: 4382321981561127760}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -29620,3 +29592,17 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!64 &4382321981561127760
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833277240446036661}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
