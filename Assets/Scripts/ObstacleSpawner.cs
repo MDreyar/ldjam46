@@ -10,8 +10,11 @@ public class ObstacleSpawner : MonoBehaviour
 
     private Thread SpawnObstacles;
 
-    [Range(1f,10f)]
+    [Range(1f, 10f)]
     public float difficultyModifier;
+
+    [Header("Balloon frequency"), Range(0f, 1f)]
+    public float balloonFrequency;
 
     void Start()
     {
@@ -30,7 +33,7 @@ public class ObstacleSpawner : MonoBehaviour
             height = 40;
         else
             height = 40;
-        GameObject obstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform);
+        GameObject obstacle = Instantiate(obstacles[Random.Range(0f, (float)obstacles.Length) > balloonFrequency ? 0 : 1], this.transform);
         obstacle.transform.position = new Vector3(obstacle.transform.position.x + Random.Range(-4, 4), obstacle.transform.position.y + (-1) * height, obstacle.transform.position.z);
         obstacle.transform.rotation = Quaternion.Euler(180, 180, 0);
     }
