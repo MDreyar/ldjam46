@@ -7,6 +7,7 @@ public class BalanceBarManager : MonoBehaviour
     private Rigidbody rBody;
     private BoxCollider collin;
     private BalanceManager balanceManager;
+    private Vector3 resetLocation;
 
     void Start()
     {
@@ -14,6 +15,7 @@ public class BalanceBarManager : MonoBehaviour
         rBody = GetComponent<Rigidbody>();
         collin = GetComponent<BoxCollider>();
         balanceManager = GameManager.Instance.BalanceManager;
+        resetLocation = transform.localPosition;
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class BalanceBarManager : MonoBehaviour
 
     public void Undie()
     {
-        transform.localPosition = new Vector3(0, 1, 0);
+        transform.localPosition = resetLocation;
         transform.localRotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         collin.isTrigger = true;

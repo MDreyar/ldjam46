@@ -9,14 +9,20 @@ public class PlayerManager : MonoBehaviour
 
     public float rollValue;
 
+    public float panicMoment = 25;
+
     private BalanceManager balanceManager;
     private Rigidbody rBody;
+    private Animator animator;
+    private Vector3 spawnLocation;
 
     void Start()
     {
         balanceManager = GameManager.Instance.BalanceManager;
         GameManager.Instance.PlayerManager = this;
         rBody = gameObject.GetComponentInChildren<Rigidbody>();
+        animator = gameObject.GetComponent<Animator>();
+        spawnLocation = transform.position;
     }
 
     void Update()
@@ -28,19 +34,28 @@ public class PlayerManager : MonoBehaviour
         }
         else if (GameManager.Instance.currentState == GameManager.GameState.death)
         {
-            if(!rBody.useGravity == true)
+            if (!rBody.useGravity == true)
             {
                 rBody.useGravity = true;
                 rBody.isKinematic = false;
                 rBody.AddRelativeForce(new Vector3(0, 3, 0), ForceMode.VelocityChange);
             }
         }
+
+        if (Mathf.Abs(balanceManager.currentBalance) > panicMoment)
+        {
+            animator.SetBool("isPanicing", true);
+        }
+        else
+        {
+            animator.SetBool("isPanicing", false);
+        }
     }
 
     public void Undie()
     {
-        transform.GetChild(0).localPosition = new Vector3(0, 1, 0);
-        transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
+        transform.position = spawnLocation;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rBody.useGravity = false;
         rBody.isKinematic = true;
