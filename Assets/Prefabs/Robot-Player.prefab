@@ -8517,7 +8517,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a77c6f32aa8b00444906b254fd484245, type: 2}
+  - {fileID: 2100000, guid: e8feed07256d7804d9d98e2f1c3ede71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10785,7 +10785,6 @@ GameObject:
   - component: {fileID: 2078118398848911797}
   - component: {fileID: 5461683158123061403}
   - component: {fileID: 610320038170779660}
-  - component: {fileID: 5186349366129148249}
   m_Layer: 0
   m_Name: Torus
   m_TagString: Untagged
@@ -16781,20 +16780,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &5186349366129148249
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906955522658348677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &3907179288892131130
 GameObject:
   m_ObjectHideFlags: 0
@@ -19099,7 +19084,6 @@ GameObject:
   - component: {fileID: 6667231328136877007}
   - component: {fileID: 2231864733145268441}
   - component: {fileID: 4010555216941551017}
-  - component: {fileID: 5090073283637021931}
   m_Layer: 0
   m_Name: Torus (1)
   m_TagString: Untagged
@@ -25095,20 +25079,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &5090073283637021931
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4840846156036692335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &4878895361154489031
 GameObject:
   m_ObjectHideFlags: 0
@@ -28958,7 +28928,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 436aa83afc8e0ae4db4cbbe85c5e104a, type: 2}
-  - {fileID: 2100000, guid: 2ffc48c3b402ab041b204f50f1ff6127, type: 2}
+  - {fileID: 2100000, guid: e8feed07256d7804d9d98e2f1c3ede71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34329,6 +34299,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3364146166960114832}
     m_Modifications:
+    - target: {fileID: 363964049684885837, guid: 742614a34e624ef40aa96fc9051bc555,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26e7120377250d445a95e3ffe6dc5c6b, type: 2}
     - target: {fileID: 545847632036292648, guid: 742614a34e624ef40aa96fc9051bc555,
         type: 3}
       propertyPath: m_Mesh
@@ -34449,6 +34424,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BalanceBar
       objectReference: {fileID: 0}
+    - target: {fileID: 7684467921279986191, guid: 742614a34e624ef40aa96fc9051bc555,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26e7120377250d445a95e3ffe6dc5c6b, type: 2}
     - target: {fileID: 7788045917627412761, guid: 742614a34e624ef40aa96fc9051bc555,
         type: 3}
       propertyPath: m_Mesh
