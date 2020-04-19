@@ -13896,6 +13896,7 @@ MonoBehaviour:
   obstacles:
   - {fileID: 5216692659962537483, guid: b53fd99a11091854c99065860d5e4960, type: 3}
   - {fileID: 8474770856601741131, guid: 62fc68ef59632bd4d901c111eacfecd1, type: 3}
+  difficultyModifier: 1
 --- !u!1001 &1827897964
 PrefabInstance:
   m_ObjectHideFlags: 0
