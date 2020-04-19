@@ -6,7 +6,16 @@ public class ObstacleManager : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Delete")
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit the player!");
+            if (gameObject.name.Contains("Balloon"))
+            {
+                transform.Find("Icosphere").GetComponent<MeshRenderer>().enabled = false;
+                GetComponentInChildren<ParticleSystem>().Play();
+            }
+        }
+        else if (other.transform.tag == "Delete")
         {
             Debug.Log("DESU!");
             Destroy(gameObject);
