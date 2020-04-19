@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public delegate void GameStateChanged(GameState state);
     public event GameStateChanged OnGameStateChanged;
 
+    public GameObject TitleScreen;
+    public GameObject GameOver;
+
     private GameState pCurrentState;
 
     public GameState currentState {
@@ -55,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentState == GameState.pregame)
         {
-            if (debugText != null) debugText.text = "Click to start!";
+            //if (debugText != null) debugText.text = "Click to start!";
             WorldManager.isSpinning = false;
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
@@ -66,6 +69,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentState == GameState.playing)
         {
+            TitleScreen.SetActive(false);
             WorldManager.isSpinning = true;
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
@@ -75,12 +79,20 @@ public class GameManager : MonoBehaviour
         }
         else if (currentState == GameState.death)
         {
-            if (debugText != null)  debugText.text = "You died!\nPress space to reset.";
+            //if (debugText != null)  debugText.text = "You died!\nPress space to reset.";
+            GameOver.SetActive(true);
             Camera.main.transform.LookAt(PlayerManager.transform.GetChild(0));
             WorldManager.isSpinning = false;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                GameOver.SetActive(false);
+                TitleScreen.SetActive(true);
                 ResetGame();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Debug.Log("Game Quit");
+                Application.Quit();
             }
         }
     }
