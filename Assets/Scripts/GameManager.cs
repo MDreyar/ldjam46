@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerManager PlayerManager { get; set; }
     public WorldManager WorldManager { get; set; }
     public BalanceBarManager BalanceBarManager { get; set; }
+    public ObstacleSpawner ObstacleSpawner { get; set; }
 
     public delegate void GameStateChanged(GameState state);
     public event GameStateChanged OnGameStateChanged;
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
         BalanceManager.Undie();
         PlayerManager.Undie();
         BalanceBarManager.Undie();
+        ObstacleSpawner.Cleanup();
         Camera.main.transform.rotation = defaultCameraPosition;
     }
 

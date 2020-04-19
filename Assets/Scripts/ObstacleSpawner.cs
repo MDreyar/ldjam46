@@ -15,6 +15,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.ObstacleSpawner = this;
         GameManager.Instance.OnGameStateChanged += GameStateChanged;
     }
 
@@ -48,6 +49,14 @@ public class ObstacleSpawner : MonoBehaviour
         if (state == GameManager.GameState.playing)
         {
             StartCoroutine(TimedSpawn());
+        }
+    }
+
+    public void Cleanup()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }
