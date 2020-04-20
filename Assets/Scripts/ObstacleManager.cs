@@ -7,6 +7,9 @@ public class ObstacleManager : MonoBehaviour
     [Header("Score")]
     public int BalloonScoreIncrease = 5;
     public int ZazoScoreDecrease = 1;
+    [Header("Score popups")]
+    public GameObject plusFive;
+    public GameObject minusOne;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +23,7 @@ public class ObstacleManager : MonoBehaviour
                 if (GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
                 GameManager.Instance.Score += BalloonScoreIncrease;
                 GameManager.Instance.increaseDifficulty();
+                Instantiate(plusFive, transform.position, transform.rotation);
             }
             else if (gameObject.name.Contains("Zazo"))
             {
@@ -29,6 +33,7 @@ public class ObstacleManager : MonoBehaviour
                 rb.AddForce(0, -3, 0, ForceMode.VelocityChange);
                 if(GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
                 GameManager.Instance.Score -= ZazoScoreDecrease;
+                Instantiate(minusOne, transform.position, transform.rotation);
             }
         }
         else if (other.transform.tag == "Delete")

@@ -6018,6 +6018,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BalloonScoreIncrease: 5
   ZazoScoreDecrease: 1
+  plusFive: {fileID: 8047715545623779569, guid: d1919980c19edd0429c7847ee5d8bb14,
+    type: 3}
+  minusOne: {fileID: 4620398403520818639, guid: aba74edce96dae140bc09fbe4508404a,
+    type: 3}
 --- !u!23 &-3507427270397631244
 MeshRenderer:
   m_ObjectHideFlags: 0
