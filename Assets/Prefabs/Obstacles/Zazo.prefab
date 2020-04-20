@@ -5903,7 +5903,7 @@ GameObject:
   - component: {fileID: 2251978239759687653}
   - component: {fileID: 7655931823255140213}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: Zazo
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6016,6 +6016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdd4e0c4ae9a6f41b53ceadf0f4b253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BalloonScoreIncrease: 10
+  ZazoScoreDecrease: 1
 --- !u!23 &-3507427270397631244
 MeshRenderer:
   m_ObjectHideFlags: 0

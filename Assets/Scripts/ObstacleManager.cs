@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour
 {
+    [Header("Score")]
+    public int BalloonScoreIncrease = 10;
+    public int ZazoScoreDecrease = 1;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +19,7 @@ public class ObstacleManager : MonoBehaviour
                 transform.Find("Icosphere").GetComponent<MeshRenderer>().enabled = false;
                 if (GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
                 if (GetComponentInChildren<ParticleSystem>().transform.parent != null) GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
-                GameManager.Instance.Score++;
+                GameManager.Instance.Score += BalloonScoreIncrease;
                 GameManager.Instance.increaseDifficulty();
             }
             else if (gameObject.name.Contains("Zazo"))
@@ -27,6 +30,7 @@ public class ObstacleManager : MonoBehaviour
                 rb.AddForce(0, -3, 0, ForceMode.VelocityChange);
                 if(GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
                 if (GetComponentInChildren<ParticleSystem>().transform.parent != null) GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
+                GameManager.Instance.Score -= ZazoScoreDecrease;
             }
         }
         else if (other.transform.tag == "Delete")

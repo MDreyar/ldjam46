@@ -37,8 +37,12 @@ public class BalanceBarManager : MonoBehaviour
     {
         if (other.transform.tag == "Obstacle")
         {
-            Debug.Log("Hit an obstacle!");
-            balanceManager.Impact();
+            Debug.Log("Hit an Obstacle!");
+            if (other.gameObject.name.Contains("Zazo"))
+            {
+                Debug.Log("Hit a Zazo");
+                balanceManager.Impact();
+            }
         }
     }
 

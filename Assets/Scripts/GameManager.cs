@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     
     public int Score { get; set; }
     [Header("Difficulty Increaser Options")]
-    public int increaseDificultyLimit = 5;
+    public int increaseDificultyLimit = 50;
     private int nextDificultyincreaselimit = 0;
     public float pushoveDifficultyIncreaser = 0f;
 
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             TitleScreen.SetActive(false);
             WorldManager.isSpinning = true;
             InGameUI.SetActive(true);
-            ScoreBoard.SetText(Score.ToString());
+            ScoreBoard.SetText("Score: " + Score.ToString());
 
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
@@ -123,6 +123,8 @@ public class GameManager : MonoBehaviour
         PlayerManager.Undie();
         BalanceBarManager.Undie();
         ObstacleSpawner.Cleanup();
+        ObstacleSpawner.difficultyModifier = 1;
+
         Score = 0;
         Camera.main.transform.rotation = defaultCameraPosition;
     }
@@ -135,9 +137,9 @@ public class GameManager : MonoBehaviour
             //dit zou er voor moeten zorgen dat de pushoverammount niet hoger gaat dan 40 maar dat is niet zo en ik weet niet waarom -iggy
             if (BalanceManager.pushoverAmount <= 40)
             {
-                nextDificultyincreaselimit += increaseDificultyLimit;
+                BalanceManager.pushoverAmount += pushoveDifficultyIncreaser;
             }
-            BalanceManager.pushoverAmount += pushoveDifficultyIncreaser;
+            nextDificultyincreaselimit += increaseDificultyLimit;
         }
     }
 
