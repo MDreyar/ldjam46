@@ -34,7 +34,7 @@ public class ObstacleSpawner : MonoBehaviour
         else
             height = 40;
         GameObject obstacle = Instantiate(obstacles[Random.Range(0f, (float)obstacles.Length) > balloonFrequency ? 0 : 1], this.transform);
-        obstacle.transform.position = new Vector3(obstacle.transform.position.x + Random.Range(-4, 4), obstacle.transform.position.y + (-1) * height, obstacle.transform.position.z);
+        obstacle.transform.position = new Vector3(obstacle.transform.position.x + getXSpawnPos(), obstacle.transform.position.y + (-1) * height, obstacle.transform.position.z);
         obstacle.transform.rotation = Quaternion.Euler(180, 180, 0);
     }
 
@@ -53,6 +53,16 @@ public class ObstacleSpawner : MonoBehaviour
         {
             StartCoroutine(TimedSpawn());
         }
+    }
+
+    private float getXSpawnPos()
+    {
+        float output = 0;
+        while(-.5 < output && output < 0.5)
+        {
+            output = Random.Range(-4, 4);
+        }
+        return output;
     }
 
     public void Cleanup()
