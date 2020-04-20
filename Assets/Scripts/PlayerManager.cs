@@ -19,6 +19,8 @@ public class PlayerManager : MonoBehaviour
     public ParticleSystem spark;
     public ParticleSystem sparkStart;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         balanceManager = GameManager.Instance.BalanceManager;
@@ -39,6 +41,8 @@ public class PlayerManager : MonoBehaviour
         }
         else if (GameManager.Instance.currentState == GameManager.GameState.death)
         {
+            audioSource.Stop();
+            audioSource.enabled = false;
             if (!rBody.useGravity == true)
             {
                 rBody.useGravity = true;
@@ -50,10 +54,12 @@ public class PlayerManager : MonoBehaviour
         if (Mathf.Abs(balanceManager.currentBalance) > panicMoment)
         {
             animator.SetBool("isPanicing", true);
+            if (!audioSource.isPlaying) audioSource.Play();
         }
         else
         {
             animator.SetBool("isPanicing", false);
+            if (audioSource.isPlaying) audioSource.Stop();
         }
     }
 
@@ -62,6 +68,7 @@ public class PlayerManager : MonoBehaviour
         transform.position = spawnLocation;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        audioSource.enabled = true;
         rBody.useGravity = false;
         rBody.isKinematic = true;
     }
