@@ -18,7 +18,6 @@ public class ObstacleManager : MonoBehaviour
             {
                 transform.Find("Icosphere").GetComponent<MeshRenderer>().enabled = false;
                 if (GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
-                if (GetComponentInChildren<ParticleSystem>().transform.parent != null) GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
                 GameManager.Instance.Score += BalloonScoreIncrease;
                 GameManager.Instance.increaseDifficulty();
             }
@@ -29,7 +28,6 @@ public class ObstacleManager : MonoBehaviour
                 rb.useGravity = true;
                 rb.AddForce(0, -3, 0, ForceMode.VelocityChange);
                 if(GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
-                if (GetComponentInChildren<ParticleSystem>().transform.parent != null) GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
                 GameManager.Instance.Score -= ZazoScoreDecrease;
             }
         }
