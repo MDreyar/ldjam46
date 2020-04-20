@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +14,16 @@ public class GameManager : MonoBehaviour
     public BalanceBarManager BalanceBarManager { get; set; }
     public ObstacleSpawner ObstacleSpawner { get; set; }
 
+    public int Score { get; set; }
+
     public delegate void GameStateChanged(GameState state);
     public event GameStateChanged OnGameStateChanged;
 
     public GameObject TitleScreen;
+    public GameObject InGameUI;
+    public TextMeshProUGUI ScoreBoard;
     public GameObject GameOver;
+    public TextMeshProUGUI EndScore;
 
     private GameState pCurrentState;
 
@@ -51,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.pregame;
         defaultCameraPosition = Camera.main.transform.rotation;
+        Score = 0;
     }
 
     // Update is called once per frame
@@ -71,8 +78,11 @@ public class GameManager : MonoBehaviour
         {
             TitleScreen.SetActive(false);
             WorldManager.isSpinning = true;
+            InGameUI.SetActive(true);
+            ScoreBoard.SetText(Score.ToString());
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
+                InGameUI.SetActive(false);
                 Debug.Log("You lost!");
                 currentState = GameState.death;
             }
@@ -81,6 +91,7 @@ public class GameManager : MonoBehaviour
         {
             //if (debugText != null)  debugText.text = "You died!\nPress space to reset.";
             GameOver.SetActive(true);
+            EndScore.SetText("score: " + Score);
             Camera.main.transform.LookAt(PlayerManager.transform.GetChild(0));
             WorldManager.isSpinning = false;
             if (Input.GetKeyDown(KeyCode.Space))
@@ -104,6 +115,7 @@ public class GameManager : MonoBehaviour
         PlayerManager.Undie();
         BalanceBarManager.Undie();
         ObstacleSpawner.Cleanup();
+        Score = 0;
         Camera.main.transform.rotation = defaultCameraPosition;
     }
 
