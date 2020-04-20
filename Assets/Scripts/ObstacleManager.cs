@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleManager : MonoBehaviour
 {
     [Header("Score")]
-    public int BalloonScoreIncrease = 10;
+    public int BalloonScoreIncrease = 5;
     public int ZazoScoreDecrease = 1;
 
     private void OnTriggerEnter(Collider other)
