@@ -2769,7 +2769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdd4e0c4ae9a6f41b53ceadf0f4b253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BalloonScoreIncrease: 10
+  BalloonScoreIncrease: 5
   ZazoScoreDecrease: 1
 --- !u!23 &6218732516687770352
 MeshRenderer:
