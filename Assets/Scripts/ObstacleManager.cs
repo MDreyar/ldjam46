@@ -17,6 +17,7 @@ public class ObstacleManager : MonoBehaviour
                 if (GetComponentInChildren<ParticleSystem>() != null) GetComponentInChildren<ParticleSystem>().Play();
                 if (GetComponentInChildren<ParticleSystem>().transform.parent != null) GetComponentInChildren<ParticleSystem>().transform.parent = gameObject.transform.parent;
                 GameManager.Instance.Score++;
+                GameManager.Instance.increaseDifficulty();
             }
             else if (gameObject.name.Contains("Zazo"))
             {

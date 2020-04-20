@@ -88,13 +88,6 @@ public class GameManager : MonoBehaviour
             InGameUI.SetActive(true);
             ScoreBoard.SetText(Score.ToString());
 
-            if (Score >= nextDificultyincreaselimit)
-            {
-                ObstacleSpawner.difficultyModifier ++;
-                BalanceManager.pushoverAmount += pushoveDifficultyIncreaser;
-                nextDificultyincreaselimit += increaseDificultyLimit;
-            }
-
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
                 InGameUI.SetActive(false);
@@ -132,6 +125,20 @@ public class GameManager : MonoBehaviour
         ObstacleSpawner.Cleanup();
         Score = 0;
         Camera.main.transform.rotation = defaultCameraPosition;
+    }
+
+    public void increaseDifficulty()
+    {
+        if (Score >= nextDificultyincreaselimit)
+        {
+            ObstacleSpawner.difficultyModifier++;
+            //dit zou er voor moeten zorgen dat de pushoverammount niet hoger gaat dan 40 maar dat is niet zo en ik weet niet waarom -iggy
+            if (BalanceManager.pushoverAmount <= 40)
+            {
+                nextDificultyincreaselimit += increaseDificultyLimit;
+            }
+            BalanceManager.pushoverAmount += pushoveDifficultyIncreaser;
+        }
     }
 
     public enum GameState
