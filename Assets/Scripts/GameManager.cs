@@ -14,11 +14,17 @@ public class GameManager : MonoBehaviour
     public BalanceBarManager BalanceBarManager { get; set; }
     public ObstacleSpawner ObstacleSpawner { get; set; }
 
+    
     public int Score { get; set; }
+    [Header("Difficulty Increaser Options")]
+    public int increaseDificultyLimit = 5;
+    private int nextDificultyincreaselimit = 0;
+    public float pushoveDifficultyIncreaser = 0f;
 
     public delegate void GameStateChanged(GameState state);
     public event GameStateChanged OnGameStateChanged;
 
+    [Header("Game UI")]
     public GameObject TitleScreen;
     public GameObject InGameUI;
     public TextMeshProUGUI ScoreBoard;
@@ -58,6 +64,7 @@ public class GameManager : MonoBehaviour
         currentState = GameState.pregame;
         defaultCameraPosition = Camera.main.transform.rotation;
         Score = 0;
+        nextDificultyincreaselimit = increaseDificultyLimit;
     }
 
     // Update is called once per frame
@@ -67,7 +74,7 @@ public class GameManager : MonoBehaviour
         {
             //if (debugText != null) debugText.text = "Click to start!";
             WorldManager.isSpinning = false;
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space))
             {
                 currentState = GameState.playing;
                 if (debugText != null) debugText.text = "";
@@ -80,6 +87,14 @@ public class GameManager : MonoBehaviour
             WorldManager.isSpinning = true;
             InGameUI.SetActive(true);
             ScoreBoard.SetText(Score.ToString());
+
+            if (Score >= nextDificultyincreaselimit)
+            {
+                ObstacleSpawner.difficultyModifier ++;
+                BalanceManager.pushoverAmount += pushoveDifficultyIncreaser;
+                nextDificultyincreaselimit += increaseDificultyLimit;
+            }
+
             if (Mathf.Abs(BalanceManager.currentBalance) >= BalanceManager.balanceMax)
             {
                 InGameUI.SetActive(false);
